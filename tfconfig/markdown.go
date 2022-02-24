@@ -81,6 +81,12 @@ Provider Requirements:
 * {{ printf "data.%s.%s" .Type .Name | tt }} from {{ tt .Provider.Name }}
 {{- end}}{{end}}
 
+{{- if .Locals}}
+## Locals
+{{- range .Locals }}
+* {{ tt .Name }}{{ if .Value}}: {{ .Value }}{{ end }}
+{{- end}}{{end}}
+
 {{- if .ModuleCalls}}
 
 ## Child Modules
